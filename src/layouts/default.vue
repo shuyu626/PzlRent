@@ -1,18 +1,16 @@
-<script setup lang="ts"></script>
-
 <template>
   <div>
-    <div class="p-6 bg-primary flex justify-between">
-      <button>
-        <router-link to="/" class="text-white" active-class="font-bold">PzlRent</router-link>
-      </button>
-      <button>
-        <router-link to="/Rent" class="text-white" active-class="font-bold">Rent</router-link>
-      </button>
-    </div>
+    <Navbar />
+    <Sidebar />
     <slot />
+    <Footer />
   </div>
 </template>
+<script setup lang="ts">
+import Navbar from '~/components/layout/Navbar.vue';
+import Sidebar from '~/components/layout/Sidebar.vue';
+import Footer from '~/components/layout/Footer.vue';
+</script>
 
 <style scoped lang="scss">
 </style>
