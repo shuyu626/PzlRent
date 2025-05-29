@@ -4,7 +4,7 @@
       <Icon name="mdi:menu" size="24" style="color: white;" />
       <nuxt-link to="/" class="text-white text-xl" active-class="font-bold">PzlRent</nuxt-link>
     </div>
-    <ul class="flex space-x-6">
+    <ul class="hidden sm:flex space-x-6">
       <li v-for="link in navLinks" :key="link.to">
         <nuxt-link :to="link.to" class="text-white text-md hover:bg-amber-500 p-3 rounded" active-class="font-bold">
           {{ link.text }}
