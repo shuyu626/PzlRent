@@ -1,7 +1,7 @@
 <template>
   <div class="flex w-full min-h-screen">
     <nuxt-link to="/" class="absolute top-8 left-4 z-10">
-      <Icon name="mdi:arrow-left" size="36" style="color: #d7d3d0;" />
+      <Icon name="mdi:arrow-left" size="36" class="text-gray-300" />
     </nuxt-link>
     <div 
     class="sm:w-1/2 flex justify-center items-center p-8 min-h-screen duration-500"
