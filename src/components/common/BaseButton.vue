@@ -1,7 +1,8 @@
 <template>
   <button
     :type="type"
-    :class="['btn', sizeClass, ButtonClass]"
+    :class="['btn', sizeClass, buttonClass,{ 'btn:disabled': disabled }]"
+    :disabled="disabled"
     @click="handleClick"
   >
     {{ text }}
@@ -24,9 +25,12 @@ const props = defineProps({
     type: String as () => 'full' | 'normal',
     default: 'w-auto'
   },
-  ButtonClass: {
+  buttonClass: {
     type: String,
     default: ''
+  },
+  disabled: {
+    type: Boolean,
   }
 })
 
@@ -79,5 +83,9 @@ const handleClick = () => {
 
 .btn--white-outline {
   @apply btn--outline border-white text-white hover:bg-white/20;
+}
+
+.btn:disabled {
+  @apply opacity-50 cursor-not-allowed pointer-events-none;
 }
 </style>

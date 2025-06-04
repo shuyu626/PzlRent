@@ -4,7 +4,7 @@
       <p>{{ selected }}</p>
       <Icon name="mdi:chevron-down" size="24" style="color: #696969;" />
     </div>
-    <ul :class="['max-h-[200px] absolute z-10 mt-1 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 sm:text-sm',{'hidden': !toggleDropdown}]" role="listbox">
+    <ul :class="['max-h-[200px] absolute z-10 mt-1 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 sm:text-sm', {'hidden': !toggleDropdown}]" role="listbox">
       <li 
       v-for="(option, index) in options" 
       :class="['relative cursor-default py-2 pr-9 pl-3 text-gray-900 select-none hover:cursor-pointer', { 'bg-primary': selected === option.label }, { 'hover:bg-primary-light': selected !== option.label}]" 

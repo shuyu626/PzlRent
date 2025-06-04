@@ -2,7 +2,7 @@
   <footer class="footer bg-primary py-6 border-t">
     <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-4">
       <div class="flex items-center space-x-3">
-        <Icon name="mdi:puzzle" size="24" style="color: white;" />
+        <Icon name="mdi:puzzle" size="24" class="text-white" />
         <span class="text-xl font-bold text-white">PzlRent 租賃平台</span>
       </div>
       <div class="mt-4 md:mt-0 text-white text-sm">

@@ -39,7 +39,7 @@ const props = defineProps({
     type: String,
   },
   modelValue: {
-    type: [String, Number],
+    type: [String, Number, Boolean],
     default: ''
   },
   type: {
@@ -82,5 +82,9 @@ const updateValue = (event:Event) => {
 
 .input.has-suffix {
   @apply pr-10;
+}
+
+input[type="checkbox"]{
+  @apply size-4 accent-secondary-dark
 }
 </style>

@@ -1,14 +1,14 @@
 <template>
   <div v-if="totalItems" class="h-[42px] flex text-neutral-dark cursor-pointer">
-    <span v-if="pages > 1 && selectedPage !==0" class="pagination hover:bg-neutral/10 ">
-      <Icon name="mdi:chevron-left" size="24"/>
-    </span>
-    <span v-for="(page, index) in totalPage" :class="['pagination', { 'bg-accent-light': selectedPage === index }, { 'hover:bg-neutral/10': selectedPage !== index}]" @click="toggle(index)">
+    <button :class="['pagination', { 'hover:bg-neutral/10' : !isPreviousPageDisabled }]" @click="goToPreviousPage">
+      <Icon name="mdi:chevron-left" size="24" :class="{'text-gray-200' : isPreviousPageDisabled}"/>
+    </button>
+    <button v-for="(page, index) in totalPage" :class="['pagination', { 'bg-accent-light': selectedPage === index }, { 'hover:bg-neutral/10': selectedPage !== index}]" @click="toggle(index)">
       {{ page }}
-    </span>
-    <span v-if="selectedPage !== pages -1 " class="pagination hover:bg-neutral/10 ">
-      <Icon name="mdi:chevron-right" size="24"/>
-    </span>
+    </button>
+    <button :class="['pagination', { 'hover:bg-neutral/10' : !isNextPageDisabled }]" @click="goToNextPage" :disabled="isNextPageDisabled">
+      <Icon name="mdi:chevron-right" size="24" :class="{'text-gray-200' : isNextPageDisabled}"/>
+    </button>
   </div>
 
 
@@ -29,8 +29,27 @@ const totalPage = computed(()=>{
   return Array.from({ length: pages }, (_, i) => i + 1);
 })
 
+const isPreviousPageDisabled = computed(()=>{
+  return pages.value <= 1 || selectedPage.value === 0;
+})
+
+const isNextPageDisabled = computed(()=>{
+  return selectedPage.value === pages.value - 1;
+})
+
 const toggle = (index:number) => {
   selectedPage.value = selectedPage.value === index ? 0 : index
+}
+const goToNextPage = () => {
+  if(!isNextPageDisabled.value){
+    selectedPage.value += 1
+  }
+}
+
+const goToPreviousPage = () => {
+  if(!isPreviousPageDisabled.value){
+    selectedPage.value -= 1
+  }
 }
 </script>
 <style scoped>
